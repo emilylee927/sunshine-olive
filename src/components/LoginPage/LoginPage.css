@@ -7,15 +7,17 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-left: 50vw;
+  padding-left: 46vw;
+  font-size: 16px;
 }
 
-.loginContainer h1 {
+.loginContainer .loginHeader {
   padding-top: 15vh;
+  font-size: 32px;
 }
 
 .loginContainer .loginForm {
-  padding-top: 10vh;
+  padding-top: 12vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,6 +25,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 20vw;
 }
 
@@ -34,8 +39,65 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  width: 100%;
+}
+
+.loginContainer .loginForm .loginInputs input {
+  margin-bottom: 25px;
+  padding-bottom: 5px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #989898;
+  font-size: 16px;
+}
+
+.loginContainer .loginForm .loginInputs input:focus, .loginContainer .loginForm .loginInputs input:hover {
+  color: #ff6440;
+  border-bottom: 1px solid #ff6440;
+}
+
+.loginContainer .loginForm .loginInputs input:focus::-webkit-input-placeholder, .loginContainer .loginForm .loginInputs input:hover::-webkit-input-placeholder {
+  color: #ff6440;
+}
+
+.loginContainer .loginForm .loginInputs input:focus:-ms-input-placeholder, .loginContainer .loginForm .loginInputs input:hover:-ms-input-placeholder {
+  color: #ff6440;
+}
+
+.loginContainer .loginForm .loginInputs input:focus::-ms-input-placeholder, .loginContainer .loginForm .loginInputs input:hover::-ms-input-placeholder {
+  color: #ff6440;
+}
+
+.loginContainer .loginForm .loginInputs input:focus::placeholder, .loginContainer .loginForm .loginInputs input:hover::placeholder {
+  color: #ff6440;
+}
+
+.loginContainer .loginForm .loginButton {
+  margin-top: 5vh;
+  width: 5vw;
+  font-size: 16px;
+  color: white;
+  background-color: #ff6440;
+  border: 0;
+  border-radius: 50px;
+  padding: 8px;
+}
+
+.loginContainer .loginForm .loginButton:hover {
+  background-color: #da6449;
+}
+
+.loginContainer .register {
+  padding-top: 5vh;
+  font-size: 16px;
+}
+
+.loginContainer .register a {
+  color: #ff6440;
+}
+
+.loginContainer .register a:hover {
+  color: #da6449;
 }
 /*# sourceMappingURL=LoginPage.css.map */

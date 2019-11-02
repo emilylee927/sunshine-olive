@@ -40,16 +40,16 @@ class LoginPage extends Component {
             return <Redirect to="/admin" />;
         }
 
-        let loginError = <p></p>;
+        let loginErrorPtag = <p></p>;
         if (this.props.authError) {
-            loginError = (
+            loginErrorPtag = (
                 <p>Username or password is incorrect! Please try again :)</p>
             );
         }
 
         return (
             <main className="loginContainer">
-                <h1>Login</h1>
+                <h1 className="loginHeader">Login</h1>
                 <form className="loginForm">
                     <div className="loginInputs">
                         <input
@@ -61,7 +61,7 @@ class LoginPage extends Component {
                             type="password"
                             name="password"
                             onChange={this.handleInput}
-                            placeholder="***********"
+                            placeholder="••••••••••"
                         />
                     </div>
                     <input
@@ -71,8 +71,8 @@ class LoginPage extends Component {
                         value="Log in"
                     ></input>
                 </form>
-                {loginError}
-                <div>
+                <div className="loginError">{loginErrorPtag}</div>
+                <div className="register">
                     <p>
                         No account yet?{" "}
                         <Link to="/register">
