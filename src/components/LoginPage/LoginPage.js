@@ -7,11 +7,14 @@ class LoginPage extends Component {
         first_name: "",
         last_name: "",
         email: "",
-        password: ""
+        password: "",
+        isadmin: false
     };
+
     handleInput = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
+
     handleSubmit = e => {
         e.preventDefault();
         if (e.target.name === "register") {
@@ -22,6 +25,10 @@ class LoginPage extends Component {
                 password: this.state.password
             });
         }
+    };
+
+    toggleIsAdmin = e => {
+        this.setState({ isadmin: !this.state.isadmin });
     };
 
     render() {
@@ -49,6 +56,10 @@ class LoginPage extends Component {
                 <br />
                 <label>Last Name</label>
                 <input name="last_name" onChange={this.handleInput} />
+                <br />
+                <br />
+                <label>Admin?</label>
+                <input type="checkbox" onChange={this.toggleIsAdmin} />
                 <br />
                 <br />
                 <button name="register" onClick={this.handleSubmit}>

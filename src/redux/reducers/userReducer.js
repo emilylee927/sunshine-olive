@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const initialState = {
-    userId: null,
-    firstName: "",
-    lastName: "",
-    isAdmin: false,
+    user_id: null,
+    first_name: "",
+    last_name: "",
+    isadmin: false,
     loginError: false
 };
 
@@ -32,18 +32,17 @@ export default function reducer(state = initialState, action) {
         case `${REGISTER_USER}_FULFILLED`:
             return {
                 ...state,
-                userId: payload.data.userId,
-                firstName: payload.data.firstName,
-                lastName: payload.data.lastName,
-                isAdmin: payload.data.isAdmin
+                user_id: payload.data.user_id,
+                first_name: payload.data.first_name,
+                last_name: payload.data.last_name,
+                isadmin: payload.data.isadmin
             };
         case `${LOGIN_USER}_FULFILLED`:
             return {
-                ...state,
-                userId: payload.data.userId,
-                firstName: payload.data.firstName,
-                lastName: payload.data.lastName,
-                isAdmin: payload.data.isAdmin,
+                user_id: payload.data.user_id,
+                first_name: payload.data.first_name,
+                last_name: payload.data.last_name,
+                isadmin: payload.data.isadmin,
                 loginError: false
             };
         case `${LOGIN_USER}_REJECTED`:

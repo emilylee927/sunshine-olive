@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 
 module.exports = {
     register: async (req, res) => {
-        const { first_name, last_name, email, password, isAdmin } = req.body;
+        const { first_name, last_name, email, password, isadmin } = req.body;
         const db = req.app.get("db");
 
         const foundUser = await db.auth.checkForEmail(email);
@@ -20,14 +20,14 @@ module.exports = {
                 last_name,
                 email,
                 hash,
-                isAdmin
+                isadmin
             );
 
             req.session.user = {
-                userId: newUser[0].user_id,
-                firstName: newUser[0].first_name,
-                lastName: newUser[0].last_name,
-                isAdmin: newUser[0].isadmin
+                user_id: newUser[0].user_id,
+                first_name: newUser[0].first_name,
+                last_name: newUser[0].last_name,
+                isadmin: newUser[0].isadmin
             };
             res.status(200).json(req.session.user);
         }
@@ -58,10 +58,10 @@ module.exports = {
                 });
             } else {
                 req.session.user = {
-                    userId: foundUser[0].user_id,
-                    firstName: foundUser[0].first_name,
-                    lastName: foundUser[0].last_name,
-                    isAdmin: foundUser[0].isadmin
+                    user_id: foundUser[0].user_id,
+                    first_name: foundUser[0].first_name,
+                    last_name: foundUser[0].last_name,
+                    isadmin: foundUser[0].isadmin
                 };
 
                 res.status(200).json(req.session.user);
