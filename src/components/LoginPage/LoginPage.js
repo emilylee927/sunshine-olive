@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { registerUser, loginUser } from "../../redux/reducers/userReducer";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class LoginPage extends Component {
     state = {
@@ -32,6 +33,12 @@ class LoginPage extends Component {
     };
 
     render() {
+        if (this.props.user_id && !this.props.isadmin) {
+            return <Redirect to="/" />;
+        } else if (this.props.user_id && this.props.isadmin) {
+            return <Redirect to="/admin" />;
+        }
+
         let loginError = <p></p>;
         if (this.props.loginError) {
             loginError = (
@@ -76,8 +83,9 @@ class LoginPage extends Component {
 
 const mapStateToProps = reduxState => {
     return {
-        userId: reduxState.userReducer.userId,
-        loginError: reduxState.userReducer.loginError
+        user_id: reduxState.userReducer.user_id,
+        loginError: reduxState.userReducer.loginError,
+        isadmin: reduxState.userReducer.isadmin
     };
 };
 

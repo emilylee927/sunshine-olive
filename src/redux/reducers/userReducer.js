@@ -26,6 +26,13 @@ export function loginUser(userInfo) {
     };
 }
 
+export function logoutUser() {
+    return {
+        type: LOGOUT_USER,
+        payload: axios.post("/auth/logout")
+    };
+}
+
 export default function reducer(state = initialState, action) {
     const { type, payload, error } = action;
     switch (type) {
@@ -49,6 +56,10 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 loginError: error
+            };
+        case `${LOGOUT_USER}_FULFILLED`:
+            return {
+                ...initialState
             };
         default:
             return state;
