@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { registerUser, loginUser } from "../../redux/reducers/userReducer";
+import { loginUser, resetAuthError } from "../../redux/reducers/userReducer";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import "./LoginPage.css";
 
 class LoginPage extends Component {
     state = {
@@ -12,20 +13,20 @@ class LoginPage extends Component {
         isadmin: false
     };
 
+    componentDidMount() {
+        this.props.resetAuthError();
+    }
+
     handleInput = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
 
     handleSubmit = e => {
         e.preventDefault();
-        if (e.target.name === "register") {
-            this.props.registerUser(this.state);
-        } else {
-            this.props.loginUser({
-                email: this.state.email,
-                password: this.state.password
-            });
-        }
+        this.props.loginUser({
+            email: this.state.email,
+            password: this.state.password
+        });
     };
 
     toggleIsAdmin = e => {
@@ -40,43 +41,46 @@ class LoginPage extends Component {
         }
 
         let loginError = <p></p>;
-        if (this.props.loginError) {
+        if (this.props.authError) {
             loginError = (
                 <p>Username or password is incorrect! Please try again :)</p>
             );
         }
 
         return (
-            <div>
-                <h1>Login or Register</h1>
-                <label>Email</label>
-                <input name="email" onChange={this.handleInput} />
-                <br />
-                <br />
-                <label>Password</label>
-                <input name="password" onChange={this.handleInput} />
-                <br />
-                <br />
-                <label>First Name</label>
-                <input name="first_name" onChange={this.handleInput} />
-                <br />
-                <br />
-                <label>Last Name</label>
-                <input name="last_name" onChange={this.handleInput} />
-                <br />
-                <br />
-                <label>Admin?</label>
-                <input type="checkbox" onChange={this.toggleIsAdmin} />
-                <br />
-                <br />
-                <button name="register" onClick={this.handleSubmit}>
-                    Sign Up
-                </button>
-                <button name="login" onClick={this.handleSubmit}>
-                    Log In
-                </button>
+            <main className="loginContainer">
+                <h1>Login</h1>
+                <form className="loginForm">
+                    <div className="loginInputs">
+                        <input
+                            name="email"
+                            onChange={this.handleInput}
+                            placeholder="email@server.com"
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            onChange={this.handleInput}
+                            placeholder="***********"
+                        />
+                    </div>
+                    <input
+                        className="loginButton"
+                        type="submit"
+                        onClick={this.handleSubmit}
+                        value="Log in"
+                    ></input>
+                </form>
                 {loginError}
-            </div>
+                <div>
+                    <p>
+                        No account yet?{" "}
+                        <Link to="/register">
+                            <a>Register an account</a>
+                        </Link>
+                    </p>
+                </div>
+            </main>
         );
     }
 }
@@ -84,13 +88,13 @@ class LoginPage extends Component {
 const mapStateToProps = reduxState => {
     return {
         user_id: reduxState.userReducer.user_id,
-        loginError: reduxState.userReducer.loginError,
+        authError: reduxState.userReducer.authError,
         isadmin: reduxState.userReducer.isadmin
     };
 };
 
 const mapDispatchToProps = {
-    registerUser,
+    resetAuthError,
     loginUser
 };
 

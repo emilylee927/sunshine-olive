@@ -23,17 +23,12 @@ class Header extends Component {
         } else {
             loginInfo = (
                 <Link to="/login">
-                    <a>Login or Register</a>
+                    <a>Login</a>
                 </Link>
             );
         }
 
-        return (
-            <div>
-                <h2>Header</h2>
-                {loginInfo}
-            </div>
-        );
+        return <div className="header">{loginInfo}</div>;
     }
 }
 

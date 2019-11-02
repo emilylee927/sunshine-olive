@@ -5,12 +5,13 @@ const initialState = {
     first_name: "",
     last_name: "",
     isadmin: false,
-    loginError: false
+    authError: false
 };
 
 const REGISTER_USER = "REGISTER_USER";
 const LOGIN_USER = "LOGIN_USER";
 const LOGOUT_USER = "LOGOUT_USER";
+const RESET_AUTH_ERROR = "RESET_AUTH_ERROR";
 
 export function registerUser(userInfo) {
     return {
@@ -33,16 +34,27 @@ export function logoutUser() {
     };
 }
 
+export function resetAuthError() {
+    return {
+        type: RESET_AUTH_ERROR
+    };
+}
+
 export default function reducer(state = initialState, action) {
     const { type, payload, error } = action;
     switch (type) {
         case `${REGISTER_USER}_FULFILLED`:
             return {
-                ...state,
                 user_id: payload.data.user_id,
                 first_name: payload.data.first_name,
                 last_name: payload.data.last_name,
-                isadmin: payload.data.isadmin
+                isadmin: payload.data.isadmin,
+                authError: false
+            };
+        case `${REGISTER_USER}_REJECTED`:
+            return {
+                ...state,
+                authError: error
             };
         case `${LOGIN_USER}_FULFILLED`:
             return {
@@ -50,16 +62,21 @@ export default function reducer(state = initialState, action) {
                 first_name: payload.data.first_name,
                 last_name: payload.data.last_name,
                 isadmin: payload.data.isadmin,
-                loginError: false
+                authError: false
             };
         case `${LOGIN_USER}_REJECTED`:
             return {
                 ...state,
-                loginError: error
+                authError: error
             };
         case `${LOGOUT_USER}_FULFILLED`:
             return {
                 ...initialState
+            };
+        case RESET_AUTH_ERROR:
+            return {
+                ...state,
+                authError: false
             };
         default:
             return state;

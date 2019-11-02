@@ -1,0 +1,23 @@
+.loginContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50vw;
+
+    h1 {
+        padding-top: 15vh;
+    }
+
+    .loginForm {
+        padding-top: 10vh;
+        display: flex;
+        flex-direction: column;
+        width: 20vw;
+
+        .loginInputs {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
