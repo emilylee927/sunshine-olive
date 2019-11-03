@@ -1,1 +1,26 @@
-/* No CSS *//*# sourceMappingURL=Header.css.map */
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style-type: none;
+  font-size: 14px;
+  font-family: "Roboto Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 450;
+}
+
+nav a {
+  padding-left: 30px;
+  text-decoration: none;
+  color: #969696;
+}
+
+nav a:hover {
+  color: #f996a7;
+}
+/*# sourceMappingURL=Header.css.map */

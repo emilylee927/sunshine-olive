@@ -48,10 +48,10 @@ class LoginPage extends Component {
         }
 
         return (
-            <main className="loginContainer">
-                <h1 className="loginHeader">Login</h1>
-                <form className="loginForm">
-                    <div className="loginInputs">
+            <main className="container">
+                <h1 className="header">Login</h1>
+                <form className="form">
+                    <div className="inputs">
                         <input
                             name="email"
                             onChange={this.handleInput}
@@ -65,20 +65,18 @@ class LoginPage extends Component {
                         />
                     </div>
                     <input
-                        className="loginButton"
+                        className="button"
                         type="submit"
                         onClick={this.handleSubmit}
                         value="Log in"
                     ></input>
                 </form>
-                <div className="loginError">{loginErrorPtag}</div>
-                <div className="register">
-                    <p>
-                        No account yet?{" "}
-                        <Link to="/register">
-                            <a>Register an account</a>
-                        </Link>
-                    </p>
+                {loginErrorPtag}
+                <div className="register-or-login">
+                    <p>No account yet? </p>
+                    <Link to="/register">
+                        <a>Register an account</a>
+                    </Link>
                 </div>
             </main>
         );

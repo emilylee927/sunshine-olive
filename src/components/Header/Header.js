@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../redux/reducers/userReducer";
+import "./Header.css";
 
 class Header extends Component {
     handleLogout = e => {
@@ -21,14 +22,24 @@ class Header extends Component {
                 </div>
             );
         } else {
-            loginInfo = (
-                <Link to="/login">
-                    <a>Login</a>
-                </Link>
-            );
+            loginInfo = <Link to="/login">Login</Link>;
         }
 
-        return <div className="header">{loginInfo}</div>;
+        return (
+            <div className="nav">
+                <nav>
+                    <Link>Cart</Link>
+                    <Link>CheckOut</Link>
+                    {loginInfo}
+                </nav>
+                <input placeholder="Search"></input>
+                <nav>
+                    <Link>Home</Link>
+                    <Link>Shop</Link>
+                    <Link>Plant Care</Link>
+                </nav>
+            </div>
+        );
     }
 }
 

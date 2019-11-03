@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { registerUser, resetAuthError } from "../../redux/reducers/userReducer";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import "../LoginPage/LoginPage.css";
 
 class RegisterPage extends Component {
     state = {
@@ -42,36 +43,53 @@ class RegisterPage extends Component {
         }
 
         return (
-            <main className="registerContainer">
-                <h1>Register</h1>
-                <div className="registerInputs">
-                    <div>
-                        <label>Email</label>
-                        <input name="email" onChange={this.handleInput} />
+            <main className="container">
+                <h1 className="header">Register</h1>
+                <form className="form">
+                    <div className="inputs">
+                        <input
+                            name="email"
+                            onChange={this.handleInput}
+                            placeholder="email@server.com"
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            onChange={this.handleInput}
+                            placeholder="••••••••••"
+                        />
+                        <input
+                            name="first_name"
+                            onChange={this.handleInput}
+                            placeholder="First name"
+                        />
+                        <input
+                            name="last_name"
+                            onChange={this.handleInput}
+                            placeholder="Last name"
+                        />
+                        {/* <div className="checkbox">
+                            <input
+                                type="checkbox"
+                                onChange={this.toggleIsAdmin}
+                            />
+                            <label>Admin account?</label>
+                        </div> */}
                     </div>
-                    <div>
-                        <label>Password</label>
-                        <input name="password" onChange={this.handleInput} />
-                    </div>
-                    <div>
-                        <label>First Name</label>
-                        <input name="first_name" onChange={this.handleInput} />
-                    </div>
-                    <div>
-                        <label>Last Name</label>
-                        <input name="last_name" onChange={this.handleInput} />
-                    </div>
-                    <div>
-                        <label>Admin?</label>
-                        <input type="checkbox" onChange={this.toggleIsAdmin} />
-                    </div>
-                </div>
-                <div className="registerButton">
-                    <button name="register" onClick={this.handleSubmit}>
-                        Sign Up
-                    </button>
-                </div>
+                    <input
+                        className="button"
+                        type="submit"
+                        onClick={this.handleSubmit}
+                        value="Register"
+                    ></input>
+                </form>
                 {registrationError}
+                <div className="register-or-login">
+                    <p>Already have an account? </p>
+                    <Link to="/login">
+                        <a>Login</a>
+                    </Link>
+                </div>
             </main>
         );
     }

@@ -1,0 +1,36 @@
+// $grey: rgb(152, 152, 152);
+// $orange: rgb(255, 100, 64);
+// $darker-orange: rgb(218, 100, 73);
+// $large-font: 32px;
+// $medium-font: 16px;
+// $small-font:14px;
+// $default-font:'Montserrat',
+// sans-serif;
+$nav-font: 'Roboto Mono',
+monospace;
+
+
+@import '../defaultStyle.scss';
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    font-size: $small-font;
+    font-family: $nav-font;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 450;
+
+    a {
+        padding-left: 30px;
+        text-decoration: none;
+        color: rgb(150, 150, 150);
+
+
+        &:hover {
+            color: rgb(249, 150, 167);
+        }
+    }
+}
