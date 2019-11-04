@@ -29,14 +29,14 @@ class Header extends Component {
             <div className="nav">
                 <nav>
                     <Link>Cart</Link>
-                    <Link>CheckOut</Link>
+                    <Link to="/checkout">CheckOut</Link>
                     {loginInfo}
                 </nav>
                 <input placeholder="Search"></input>
                 <nav>
-                    <Link>Home</Link>
-                    <Link>Shop</Link>
-                    <Link>Plant Care</Link>
+                    <Link to="/">Home</Link>
+                    <Link to="/shop">Shop</Link>
+                    <Link to="/plantcare">Plant Care</Link>
                 </nav>
             </div>
         );

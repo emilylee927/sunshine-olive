@@ -3,6 +3,7 @@ import { loginUser, resetAuthError } from "../../redux/reducers/userReducer";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./LoginPage.css";
+import LoginVideo from "../../img/LogiN.mp4";
 
 class LoginPage extends Component {
     state = {
@@ -49,6 +50,12 @@ class LoginPage extends Component {
 
         return (
             <main className="container">
+                <div className="fullscreen-bg">
+                    <video autoPlay loop>
+                        <source src={LoginVideo}></source>
+                    </video>
+                </div>
+
                 <h1 className="header">Login</h1>
                 <form className="form">
                     <div className="inputs">
