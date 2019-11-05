@@ -1,12 +1,16 @@
 require("dotenv").config();
+const { CONNECTION_STRING, SESSION_SECRET, SECRET_KEY } = process.env;
+
 const express = require("express");
 const app = express();
 const massive = require("massive");
 const session = require("express-session");
-const { register, login, logout } = require("./controllers/authController.js");
-
-const { CONNECTION_STRING, SESSION_SECRET, SECRET_KEY } = process.env;
 const stripe = require("stripe")(SECRET_KEY);
+const multer = require("multer");
+
+const { register, login, logout } = require("./controllers/authController");
+const productController = require("./controllers/productController");
+
 app.use(express.json());
 
 app.use(
@@ -25,10 +29,24 @@ massive(CONNECTION_STRING).then(db => {
     console.log("Hey ~ Database is connected !");
 });
 
+const upload = multer({ dest: "uploads/" });
+
 //auth//
 app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.post("/auth/logout", logout);
+
+//product//
+app.get("/api/product", productController.getAll);
+app.post("/api/product", productController.add);
+app.get("/api/product/:product_id", productController.getOne);
+app.put("/api/product/:product_id", productController.edit);
+app.delete("/api/product/:product_id", productController.delete);
+app.post(
+    "/api/product/image/:product_id",
+    upload.single("image"),
+    productController.upload
+);
 
 //checkout
 // app.post("/checkout", async (req, res) => {
