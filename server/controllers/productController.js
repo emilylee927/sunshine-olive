@@ -58,15 +58,31 @@ module.exports = {
         }
         const { product_id } = req.params;
         const db = req.app.get("db");
+        const cloudinary = req.app.get("cloudinary");
+        const util = req.app.get("util");
 
         const file = req.file;
+        const path = file.path;
         const name = file.filename;
         const type = file.mimetype;
         const size = file.size;
 
+        const uploaderPromise = util.promisify(cloudinary.uploader.upload);
+        let uploadResponse;
+        try {
+            uploadResponse = await uploaderPromise(path);
+        } catch (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: "Error uploading image to Cloudinary"
+            });
+        }
+
+        const { secure_url } = uploadResponse;
+
         let image;
         try {
-            image = await db.product.upload(name, type, size);
+            image = await db.product.upload(name, type, size, secure_url);
         } catch (err) {
             console.log(err);
             return res.status(500).json({

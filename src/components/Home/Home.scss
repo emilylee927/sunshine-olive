@@ -1,0 +1,42 @@
+ .homeDiv {
+
+     display: flex;
+     justify-content: center;
+
+     main {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-around;
+     }
+
+     title {
+         display: flex;
+         flex-direction: column;
+     }
+
+     title {
+         font-family: 'Playfair Display', serif;
+         font-size: 40px;
+         text-transform: uppercase;
+         letter-spacing: 8px;
+         line-height: 1.4px;
+         padding-right: 8.5vw;
+         padding-top: 16vh;
+
+
+
+     }
+
+     .pot1 {
+         height: 90%;
+
+
+     }
+
+     .side1 {
+         height: 50%;
+         padding-right: 14.5%;
+         padding-top: 12%;
+     }
+
+ }

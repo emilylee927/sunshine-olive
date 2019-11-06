@@ -1,0 +1,51 @@
+.homeDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.homeDiv main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.homeDiv title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.homeDiv title {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  line-height: 1.4px;
+  padding-right: 8.5vw;
+  padding-top: 16vh;
+}
+
+.homeDiv .pot1 {
+  height: 90%;
+}
+
+.homeDiv .side1 {
+  height: 50%;
+  padding-right: 14.5%;
+  padding-top: 12%;
+}
+/*# sourceMappingURL=Home.css.map */

@@ -1,3 +1,9 @@
+.nav {
+  height: 7vh;
+  width: 100vw;
+  background-color: #98ada2;
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6,21 +12,40 @@ nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-right: 10px;
   list-style-type: none;
-  font-size: 14px;
+  font-size: 18px;
   font-family: "Roboto Mono", monospace;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-weight: 450;
+  padding: 10px;
 }
 
 nav a {
-  padding-left: 30px;
+  padding-right: 30px;
   text-decoration: none;
-  color: #969696;
+  color: white;
 }
 
 nav a:hover {
-  color: #f996a7;
+  color: #fad9df;
+}
+
+nav input {
+  margin: 0, 5px;
+}
+
+nav img {
+  height: 30px;
+  padding-left: 30px;
 }
 /*# sourceMappingURL=Header.css.map */

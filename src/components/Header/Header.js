@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../redux/reducers/userReducer";
+import shoppingcart from "../../img/carticon.png";
 import "./Header.css";
 
 class Header extends Component {
@@ -28,15 +29,15 @@ class Header extends Component {
         return (
             <div className="nav">
                 <nav>
-                    <Link>Cart</Link>
-                    <Link to="/checkout">CheckOut</Link>
-                    {loginInfo}
-                </nav>
-                <input placeholder="Search"></input>
-                <nav>
                     <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>
                     <Link to="/plantcare">Plant Care</Link>
+                    <Link>My Plant</Link>
+                    <input placeholder="Search"></input>
+                    <Link to="/checkout">
+                        <img classNamr="cart" src={shoppingcart}></img>
+                    </Link>
+                    {loginInfo}
                 </nav>
             </div>
         );

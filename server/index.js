@@ -1,5 +1,12 @@
 require("dotenv").config();
-const { CONNECTION_STRING, SESSION_SECRET, SECRET_KEY } = process.env;
+const {
+    CONNECTION_STRING,
+    SESSION_SECRET,
+    SECRET_KEY,
+    CLOUDINARY_NAME,
+    CLOUDINARY_API_KEY,
+    CLOUDINARY_API_SECRET
+} = process.env;
 
 const express = require("express");
 const app = express();
@@ -7,6 +14,8 @@ const massive = require("massive");
 const session = require("express-session");
 const stripe = require("stripe")(SECRET_KEY);
 const multer = require("multer");
+const cloudinary = require("cloudinary").v2;
+const util = require("util");
 
 const { register, login, logout } = require("./controllers/authController");
 const productController = require("./controllers/productController");
@@ -29,7 +38,25 @@ massive(CONNECTION_STRING).then(db => {
     console.log("Hey ~ Database is connected !");
 });
 
-const upload = multer({ dest: "uploads/" });
+cloudinary.config({
+    cloud_name: CLOUDINARY_NAME,
+    api_key: CLOUDINARY_API_KEY,
+    api_secret: CLOUDINARY_API_SECRET
+});
+
+app.set("cloudinary", cloudinary);
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "./uploads");
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + "-" + file.originalname);
+    }
+});
+const upload = multer({ storage });
+
+app.set("util", util);
 
 //auth//
 app.post("/auth/register", register);
