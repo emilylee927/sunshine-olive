@@ -37,9 +37,9 @@ module.exports = {
 
         const db = req.app.get("db");
 
-        let product;
+        let products;
         try {
-            product = await db.product.add(name, description, price, category);
+            products = await db.product.add(name, description, price, category);
         } catch (err) {
             console.log(err);
             return res.status(500).json({
@@ -47,7 +47,7 @@ module.exports = {
             });
         }
 
-        res.status(200).json(product[0]);
+        res.status(200).json(products);
     },
 
     upload: async (req, res) => {
@@ -131,8 +131,9 @@ module.exports = {
         const { product_id } = req.params;
         const db = req.app.get("db");
 
+        let products;
         try {
-            await db.product.delete(product_id);
+            products = await db.product.delete(product_id);
         } catch (err) {
             console.log(err);
             return res.status(500).json({
@@ -140,6 +141,6 @@ module.exports = {
             });
         }
 
-        res.sendStatus(200);
+        res.status(200).json(products);
     }
 };

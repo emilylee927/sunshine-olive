@@ -1,4 +1,4 @@
 SELECT p.*, i.image_url
-FROM product
-    LEFT JOIN image i ON p.image_id = i.image_id;
-WHERE product_id = $1;
+FROM product p
+    LEFT JOIN image i ON p.image_id = i.image_id
+WHERE p.product_id = $1;
