@@ -2,6 +2,7 @@ import React from "react";
 import routes from "./routes";
 import "./App.css";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 // import SOlogo from "./img/SOlogo.png";
 
 function App() {
@@ -10,17 +11,7 @@ function App() {
             {/* <img className="logo" src={SOlogo}></img> */}
             <Header />
             {routes}
-            <footer>
-                <div>
-                    <h5>Contact</h5>
-                </div>
-                <div>
-                    <h5>Location</h5>
-                </div>
-                <div>
-                    <h5>Subscribe</h5>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

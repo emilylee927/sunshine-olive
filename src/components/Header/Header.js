@@ -34,8 +34,10 @@ class Header extends Component {
 
         return (
             <div className="nav">
-                <nav>
+                <nav className="nav-left">
                     <Link to="/">Home</Link>
+                </nav>
+                <nav className="nav-right">
                     <Link to="/shop">Shop</Link>
                     <Link to="/plantcare">Plant Care</Link>
                     <Link>My Plant</Link>

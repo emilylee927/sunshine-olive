@@ -18,6 +18,9 @@ class Home extends Component {
                             out "Plant Care" !
                         </p>
                     </div>
+                    <div className="shop-button">
+                        <button>Shop</button>
+                    </div>
                     <img className="pot1" src={Pot1}></img>
                 </main>
             </div>

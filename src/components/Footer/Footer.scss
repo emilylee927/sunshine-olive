@@ -1,0 +1,37 @@
+$footer-font: "Roboto Mono", monospace;
+
+.footer {
+    width: 100%;
+    background-color: rgb(210, 187, 176);
+    color: white;
+    font-family: $footer-font;
+    display: grid;
+    grid-template-columns: 10vw 15vw 10vw 15vw 10vw 25vw auto;
+    grid-template-rows: 20px 30px 20px auto 20px;
+    grid-template-areas:
+        ". .       . .        . .         ."
+        ". contact . location . subscribe ."
+        ". .       . .        . .         ."
+        ". .       . address  . email     ."
+        ". .       . .        . .         .";
+}
+
+.contact {
+    grid-area: contact;
+}
+
+.location {
+    grid-area: location;
+}
+
+.address {
+    grid-area: address;
+}
+
+.subscribe {
+    grid-area: subscribe;
+}
+
+.email {
+    grid-area: email;
+}

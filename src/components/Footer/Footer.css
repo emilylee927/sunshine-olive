@@ -1,0 +1,44 @@
+.footer {
+  width: 100%;
+  background-color: #d2bbb0;
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10vw 15vw 10vw 15vw 10vw 25vw auto;
+      grid-template-columns: 10vw 15vw 10vw 15vw 10vw 25vw auto;
+  -ms-grid-rows: 20px 30px 20px auto 20px;
+      grid-template-rows: 20px 30px 20px auto 20px;
+      grid-template-areas: ". .       . .        . .         ." ". contact . location . subscribe ." ". .       . .        . .         ." ". .       . address  . email     ." ". .       . .        . .         .";
+}
+
+.contact {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: contact;
+}
+
+.location {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: location;
+}
+
+.address {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+  grid-area: address;
+}
+
+.subscribe {
+  -ms-grid-row: 2;
+  -ms-grid-column: 6;
+  grid-area: subscribe;
+}
+
+.email {
+  -ms-grid-row: 4;
+  -ms-grid-column: 6;
+  grid-area: email;
+}
+/*# sourceMappingURL=Footer.css.map */
