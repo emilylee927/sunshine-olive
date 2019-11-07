@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import SearchIcon from "../../img/search.png";
 import { logoutUser } from "../../redux/reducers/userReducer";
 import shoppingcart from "../../img/carticon.png";
 import "./Header.css";
@@ -15,15 +16,20 @@ class Header extends Component {
         let loginInfo;
         if (this.props.user_id) {
             loginInfo = (
-                <div>
-                    <p>Logged in as {this.props.first_name}</p>
+                <div className="loginInfo">
+                    <p>Hi,{this.props.first_name} </p>
+                    <br />
                     <a href="#" onClick={this.handleLogout}>
                         Logout
                     </a>
                 </div>
             );
         } else {
-            loginInfo = <Link to="/login">Login</Link>;
+            loginInfo = (
+                <Link className="login-status" to="/login">
+                    Login
+                </Link>
+            );
         }
 
         return (
@@ -33,9 +39,18 @@ class Header extends Component {
                     <Link to="/shop">Shop</Link>
                     <Link to="/plantcare">Plant Care</Link>
                     <Link>My Plant</Link>
-                    <input placeholder="Search"></input>
+                    <form>
+                        <input className="searchfield " placeholder="Search" />
+                        <a href="#">
+                            <img
+                                className="search-icon"
+                                class="search-icon"
+                                src={SearchIcon}
+                            />
+                        </a>
+                    </form>
                     <Link to="/checkout">
-                        <img classNamr="cart" src={shoppingcart}></img>
+                        <img className="cart" src={shoppingcart}></img>
                     </Link>
                     {loginInfo}
                 </nav>

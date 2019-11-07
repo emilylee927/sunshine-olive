@@ -6,3 +6,11 @@ $medium-font: 16px;
 $small-font:14px;
 $default-font:'Montserrat',
 sans-serif;
+
+@mixin flexBox ($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: $direction;
+}

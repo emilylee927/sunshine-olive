@@ -10,6 +10,17 @@ function App() {
             {/* <img className="logo" src={SOlogo}></img> */}
             <Header />
             {routes}
+            <footer>
+                <div>
+                    <h5>Contact</h5>
+                </div>
+                <div>
+                    <h5>Location</h5>
+                </div>
+                <div>
+                    <h5>Subscribe</h5>
+                </div>
+            </footer>
         </div>
     );
 }

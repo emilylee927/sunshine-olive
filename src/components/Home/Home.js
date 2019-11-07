@@ -8,11 +8,16 @@ class Home extends Component {
             <div className="homeDiv">
                 <main>
                     <img className="side1" src={Side1}></img>
-
-                    <title>
-                        <h1 className="title">Sunshine </h1>
-                        <h1 className="title">Olive</h1>
-                    </title>
+                    <div className="title">
+                        <h1>Sunshine </h1>
+                        <h1>Olive</h1>
+                    </div>
+                    <div className="subtitle">
+                        <p>
+                            Forgot how often you should water your plant? check
+                            out "Plant Care" !
+                        </p>
+                    </div>
                     <img className="pot1" src={Pot1}></img>
                 </main>
             </div>
