@@ -48,6 +48,22 @@ ADD COLUMN image_id INTEGER;
 ALTER TABLE image
 ADD COLUMN image_url INTEGER;
 
-ALTER TABLE IMAGE
+ALTER TABLE image
 ALTER COLUMN image_url TYPE
 TEXT;
+
+/* Shopping cart migration */
+CREATE TABLE cart_item
+(
+    cart_item_id SERIAL PRIMARY KEY,
+    product_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL
+);
+
+ALTER TABLE cart_item
+DROP COLUMN product_id;
+
+ALTER TABLE cart_item
+ADD COLUMN product_id INTEGER NOT NULL REFERENCES product
+(product_id) ON
+DELETE CASCADE;

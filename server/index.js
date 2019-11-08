@@ -19,6 +19,7 @@ const util = require("util");
 
 const { register, login, logout } = require("./controllers/authController");
 const productController = require("./controllers/productController");
+const cartController = require("./controllers/cartController");
 
 app.use(express.json());
 
@@ -74,6 +75,11 @@ app.post(
     upload.single("image"),
     productController.upload
 );
+
+//cart//
+app.get("/api/cart/:user_id", cartController.get);
+app.post("/api/cart/:user_id", cartController.add);
+app.delete("/api/cart/:user_id", cartController.delete);
 
 //checkout
 // app.post("/checkout", async (req, res) => {

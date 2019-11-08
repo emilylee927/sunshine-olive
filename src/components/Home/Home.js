@@ -4,6 +4,7 @@ import routes from "../../routes";
 import { Link } from "react-router-dom";
 import Pot1 from "../../img/pot1.png";
 import Side1 from "../../img/side 1.png";
+import Instagram from "../Instagram/Instagram";
 class Home extends Component {
     render() {
         return (
@@ -27,6 +28,7 @@ class Home extends Component {
                     </div>
                     <img className="pot1" src={Pot1}></img>
                 </main>
+                <Instagram />
             </div>
         );
     }
