@@ -79,7 +79,7 @@ app.post(
 //cart//
 app.get("/api/cart/:user_id", cartController.get);
 app.post("/api/cart/:user_id", cartController.add);
-app.delete("/api/cart/:user_id", cartController.delete);
+app.delete("/api/cart/:user_id/:cart_item_id", cartController.delete);
 
 //checkout
 // app.post("/checkout", async (req, res) => {

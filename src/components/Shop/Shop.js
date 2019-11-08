@@ -8,18 +8,28 @@ import {
     deleteProduct
 } from "../../redux/reducers/productReducer";
 
+import { addToCart } from "../../redux/reducers/cartReducer";
+
 class Shop extends Component {
     componentDidMount() {
         this.props.getAllProducts();
     }
 
     componentDidUpdate(prevProps) {
-        this.props.getAllProducts();
+        if (this.props.user_id !== prevProps.user_id) {
+            this.props.getAllProducts();
+        }
     }
 
     handleDelete(product_id) {
         return e => {
             this.props.deleteProduct(product_id);
+        };
+    }
+
+    handleAddToCart(product_id) {
+        return e => {
+            this.props.addToCart(product_id, this.props.user_id);
         };
     }
 
@@ -54,7 +64,12 @@ class Shop extends Component {
                             className="shop-image"
                         ></img>
                         <br></br>
-                        <button className="Add">Add to cart</button>
+                        <button
+                            className="Add"
+                            onClick={this.handleAddToCart(product_id)}
+                        >
+                            Add to cart
+                        </button>
                         {adminButtons}
                     </div>
                 );
@@ -74,13 +89,15 @@ class Shop extends Component {
 const mapStateToProps = reduxState => {
     return {
         allProducts: reduxState.productReducer.allProducts,
-        isadmin: reduxState.userReducer.isadmin
+        isadmin: reduxState.userReducer.isadmin,
+        user_id: reduxState.userReducer.user_id
     };
 };
 
 const mapDispatchToProps = {
     getAllProducts,
-    deleteProduct
+    deleteProduct,
+    addToCart
 };
 
 export default connect(

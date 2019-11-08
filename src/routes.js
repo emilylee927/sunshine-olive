@@ -10,6 +10,7 @@ import Admin from "./components/Admin/Admin";
 import AddProductPage from "./components/Admin/AddProductPage";
 import CheckOut from "./components/Checkout/Checkout";
 import UploadProductImage from "./components/Admin/UploadProductImage";
+import Cart from "./components/Cart/Cart";
 
 export default (
     <Switch>
@@ -25,5 +26,6 @@ export default (
         />
         <Route component={PlantCare} path="/plantcare" />
         <Route component={CheckOut} path="/checkout" />
+        <Route component={Cart} path="/cart" />
     </Switch>
 );

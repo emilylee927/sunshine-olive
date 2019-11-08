@@ -57,7 +57,7 @@ class Header extends Component {
                             />
                         </a>
                     </form>
-                    <Link to="/checkout">
+                    <Link to="/cart">
                         <img className="cart" src={shoppingcart}></img>
                     </Link>
                     {loginInfo}

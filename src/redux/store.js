@@ -3,10 +3,12 @@ import promise from "redux-promise-middleware";
 
 import userReducer from "./reducers/userReducer";
 import productReducer from "./reducers/productReducer";
+import cartReducer from "./reducers/cartReducer";
 
 const rootReducer = combineReducers({
     userReducer,
-    productReducer
+    productReducer,
+    cartReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

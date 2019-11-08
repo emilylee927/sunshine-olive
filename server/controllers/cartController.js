@@ -36,8 +36,7 @@ module.exports = {
 
     delete: async (req, res) => {
         const db = req.app.get("db");
-        const { user_id } = req.params;
-        const { cart_item_id } = req.body;
+        const { user_id, cart_item_id } = req.params;
 
         let cart;
         try {
