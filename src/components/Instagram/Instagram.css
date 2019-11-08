@@ -1,0 +1,30 @@
+.instagram-container {
+  font-family: "Roboto Mono", monospace;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10vw auto 10vw;
+      grid-template-columns: 10vw auto 10vw;
+  -ms-grid-rows: 5vh 10vh 5vh 40vh 5vh;
+      grid-template-rows: 5vh 10vh 5vh 40vh 5vh;
+      grid-template-areas: ". .      ." ". header ." ". .      ." ". main   ." ". .      .";
+}
+
+.instagram-header {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: header;
+  font-size: 24px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.lightwidget-widget {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: main;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  height: 100%;
+  width: 50vw;
+}
+/*# sourceMappingURL=Instagram.css.map */

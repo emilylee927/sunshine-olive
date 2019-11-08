@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
+import routes from "../../routes";
+import { Link } from "react-router-dom";
 import Pot1 from "../../img/pot1.png";
 import Side1 from "../../img/side 1.png";
 class Home extends Component {
@@ -19,7 +21,9 @@ class Home extends Component {
                         </p>
                     </div>
                     <div className="shop-button">
-                        <button>Shop</button>
+                        <button>
+                            <Link to="/shop">Shop</Link>
+                        </button>
                     </div>
                     <img className="pot1" src={Pot1}></img>
                 </main>

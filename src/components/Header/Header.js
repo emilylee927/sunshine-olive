@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SearchIcon from "../../img/search.png";
 import { logoutUser } from "../../redux/reducers/userReducer";
 import shoppingcart from "../../img/carticon.png";
+import SunshineOliveIcon from "../../img/sunshin-logo.png";
 import "./Header.css";
 
 class Header extends Component {
@@ -35,7 +36,12 @@ class Header extends Component {
         return (
             <div className="nav">
                 <nav className="nav-left">
-                    <Link to="/">Home</Link>
+                    <Link to="/">
+                        <img
+                            className="Sunshine-logo"
+                            src={SunshineOliveIcon}
+                        ></img>
+                    </Link>
                 </nav>
                 <nav className="nav-right">
                     <Link to="/shop">Shop</Link>

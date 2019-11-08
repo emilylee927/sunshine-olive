@@ -1,4 +1,6 @@
 $footer-font: "Roboto Mono", monospace;
+@import "../Header/Header.scss";
+@import "../defaultStyle.scss";
 
 .footer {
     width: 100%;
@@ -34,4 +36,15 @@ $footer-font: "Roboto Mono", monospace;
 
 .email {
     grid-area: email;
+}
+
+.signUp {
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    background-color: transparent !important;
+    color: white;
+
+    &::placeholder {
+        color: white;
+    }
 }

@@ -1,0 +1,27 @@
+$font: "Roboto Mono", monospace;
+
+.instagram-container {
+    font-family: $font;
+    display: grid;
+    grid-template-columns: 10vw auto 10vw;
+    grid-template-rows: 5vh 10vh 5vh 40vh 5vh;
+    grid-template-areas:
+        ". .      ."
+        ". header ."
+        ". .      ."
+        ". main   ."
+        ". .      .";
+}
+
+.instagram-header {
+    grid-area: header;
+    font-size: 24px;
+    justify-self: center;
+}
+
+.lightwidget-widget {
+    grid-area: main;
+    justify-self: center;
+    height: 100%;
+    width: 50vw;
+}

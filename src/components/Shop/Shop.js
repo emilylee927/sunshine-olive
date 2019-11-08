@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import "./Shop.scss";
 
 import {
     getAllProducts,
@@ -47,9 +48,13 @@ class Shop extends Component {
                         <h3>{name}</h3>
                         <p>{description}</p>
                         <p>Price: ${price}</p>
-                        <img src={image_url} alt={name}></img>
+                        <img
+                            src={image_url}
+                            alt={name}
+                            className="shop-image"
+                        ></img>
                         <br></br>
-                        <button>Add to cart</button>
+                        <button className="Add">Add to cart</button>
                         {adminButtons}
                     </div>
                 );

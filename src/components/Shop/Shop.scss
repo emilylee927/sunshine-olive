@@ -1,0 +1,32 @@
+@import "../defaultStyle.scss";
+
+$bt-color: rgb(244, 200, 191);
+$bt-hover-color: rgb(233, 187, 178);
+
+@mixin default-button {
+    margin-top: 5vh;
+    width: 10vw;
+    font-size: 12px;
+    color: black;
+    background-color: $bt-color;
+    text-transform: uppercase;
+    border: 0;
+    padding: 15px;
+    font-family: $default-font;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    &:hover {
+        background-color: $bt-hover-color;
+    }
+}
+
+.Add {
+    @include default-button();
+    margin-left: 40%;
+    margin-bottom: 5%;
+}
+
+.shop-image {
+    height: 300px;
+}
