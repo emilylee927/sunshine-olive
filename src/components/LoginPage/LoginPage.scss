@@ -7,7 +7,7 @@
 // $default-font:'Montserrat',
 // sans-serif;
 
-@import '../defaultStyle.scss';
+@import "../defaultStyle.scss";
 
 .container {
     height: 98vh;
@@ -15,6 +15,9 @@
     flex-direction: column;
     padding-left: 46vw;
     font-size: $medium-font;
+    background-image: url("../../img/plant.jpg");
+    background-size: cover;
+    background-repeat: none;
 
     .header {
         padding-top: 15vh;
@@ -108,7 +111,6 @@
 }
 
 .fullscreen-bg {
-
     position: fixed;
     top: 0;
     right: 0;
@@ -121,6 +123,5 @@
         // position: absolute;
         // top: 0;
         // left: 0;
-
     }
 }

@@ -140,11 +140,16 @@ form {
   color: white;
 }
 
+.Sunshine-logo {
+  height: 37px;
+}
+
 .footer {
   width: 100%;
-  background-color: #d2bbb0;
-  color: white;
-  font-family: "Roboto Mono", monospace;
+  background-color: #123132;
+  color: #ffe6d2;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1.2px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 10vw 15vw 10vw 15vw 10vw 25vw auto;
@@ -185,25 +190,63 @@ form {
 }
 
 .signUp {
+  height: 35px;
+  letter-spacing: 1.2px;
+  font-size: 15px;
+  width: 50%;
+  color: #b97f6d;
   border: none;
-  border-bottom: 2px solid #ffffff;
-  background-color: transparent !important;
-  color: white;
+  border-bottom: 2px solid #b97f6d;
+  background-color: rgba(255, 255, 255, 0.79) !important;
 }
 
 .signUp::-webkit-input-placeholder {
-  color: white;
+  color: #b97f6d;
 }
 
 .signUp:-ms-input-placeholder {
-  color: white;
+  color: #b97f6d;
 }
 
 .signUp::-ms-input-placeholder {
-  color: white;
+  color: #b97f6d;
 }
 
 .signUp::placeholder {
-  color: white;
+  color: #b97f6d;
+}
+
+.cta {
+  background-color: transparent;
+  color: #b97f6d;
+  border: 2px solid #b97f6d;
+  margin-left: 10px;
+  height: 40px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+iframe {
+  margin-top: 0;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #b97f6d;
+  padding-left: 40%;
+}
+
+.cellcall, .mailto {
+  text-decoration: none;
+  color: #ffe6d2;
+}
+
+.cellcall:hover, .mailto:hover {
+  color: #b97f6d;
+}
+
+#map {
+  width: 100%;
+  height: 500px;
 }
 /*# sourceMappingURL=Footer.css.map */

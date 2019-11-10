@@ -50,11 +50,11 @@ class LoginPage extends Component {
 
         return (
             <main className="container">
-                <div className="fullscreen-bg">
+                {/* <div className="fullscreen-bg">
                     <video autoPlay loop>
                         <source src={LoginVideo}></source>
                     </video>
-                </div>
+                </div> */}
 
                 <h1 className="header">Login</h1>
                 <form className="form">

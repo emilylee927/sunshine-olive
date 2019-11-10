@@ -50,11 +50,7 @@ class Header extends Component {
                     <form>
                         <input className="searchfield " placeholder="Search" />
                         <a href="#">
-                            <img
-                                className="search-icon"
-                                class="search-icon"
-                                src={SearchIcon}
-                            />
+                            <img className="search-icon" src={SearchIcon} />
                         </a>
                     </form>
                     <Link to="/cart">
