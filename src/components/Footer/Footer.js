@@ -4,6 +4,30 @@ import loadGoogleMapsApi from "load-google-maps-api";
 const { REACT_APP_GOOGLE_API_KEY } = process.env;
 
 class Footer extends Component {
+    state = {
+        emailValue: ""
+    };
+
+    handleChange = e => {
+        this.setState({ emailValue: e.target.value });
+    };
+
+    handleSubmit = e => {
+        e.preventDefault();
+        fetch(
+            `https://gmail.us5.list-manage.com/subscribe/post/?u=4ebec6b1a57fdc02613a4be22&id=27164d2cd1&EMAIL=${this.state.emailValue}`,
+            { method: "POST", mode: "no-cors" }
+        )
+            .then(response => {
+                alert("You're subscribed :)");
+                this.setState({ emailValue: "" });
+            })
+            .catch(error => {
+                alert("Oops something went wrong :(");
+                console.log(error);
+            });
+    };
+
     componentDidMount() {
         loadGoogleMapsApi({ key: REACT_APP_GOOGLE_API_KEY })
             .then(function(googleMaps) {
@@ -223,13 +247,28 @@ class Footer extends Component {
 
                         <h5>Address: 500 S Ervay St #101, Dallas, TX-75202</h5>
                     </div>
-                    <div className="email">
+                    {/*<div className="email">
                         <input
                             className="signUp"
                             placeholder="Email address"
                         ></input>
                         <button className="cta">Subscribe Now</button>
-                    </div>
+                    </div>*/}
+                    <form className="email" onSubmit={this.handleSubmit}>
+                        <input
+                            type="email"
+                            className="signUp"
+                            value={this.state.emailValue}
+                            onChange={this.handleChange}
+                            name="EMAIL"
+                            placeholder="Email address"
+                        />
+                        <input
+                            type="submit"
+                            value="Subscribe"
+                            className="cta"
+                        />
+                    </form>
                 </footer>
                 <div id="map">
                     {/* <iframe
