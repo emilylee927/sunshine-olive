@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { getCart, removeFromCart } from "../../redux/reducers/cartReducer";
 
@@ -48,6 +49,10 @@ class Cart extends Component {
         return (
             <article>
                 <h2>Cart</h2>
+                <p>Total price: ${this.props.totalPrice}</p>
+                <Link to="/checkout">
+                    <button>Check out</button>
+                </Link>
                 {items}
             </article>
         );
@@ -57,6 +62,7 @@ class Cart extends Component {
 const mapStateToProps = reduxState => {
     return {
         cart: reduxState.cartReducer.cart,
+        totalPrice: reduxState.cartReducer.totalPrice,
         user_id: reduxState.userReducer.user_id
     };
 };

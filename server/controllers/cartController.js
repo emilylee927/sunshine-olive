@@ -49,5 +49,20 @@ module.exports = {
         }
 
         res.status(200).json(cart);
+    },
+
+    deleteAll: async (req, res) => {
+        const db = req.app.get("db");
+        const { user_id } = req.params;
+        try {
+            await db.cart_item.deleteAll(user_id);
+        } catch (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: "Error deleting cart items from database"
+            });
+        }
+
+        res.sendStatus(200);
     }
 };

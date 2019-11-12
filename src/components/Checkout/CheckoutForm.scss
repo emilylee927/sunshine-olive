@@ -1,0 +1,66 @@
+.StripeElement {
+    box-sizing: border-box;
+
+    height: 40px;
+
+    padding: 10px 12px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+    border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}
+
+.checkout {
+    display: grid;
+    grid-template-columns: 100px 400px 100px;
+    grid-template-rows: 10px 50px 30px 50px 10px 30px 30px;
+    grid-template-areas:
+        ". .      ."
+        ". title  ."
+        ". .      ."
+        ". stripe ."
+        ". .      ."
+        ". button ."
+        ". .      .";
+}
+
+.checkout-title {
+    grid-area: title;
+}
+
+.checkout-stripe {
+    grid-area: stripe;
+}
+
+.checkout-button {
+    grid-area: button;
+    border-radius: 20px;
+    border: 2px solid grey;
+    background-color: rgb(240, 231, 213);
+    &:hover {
+        background-color: wheat;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:visited {
+        color: black;
+        text-decoration: none;
+    }
+}

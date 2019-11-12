@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { loginUser, resetAuthError } from "../../redux/reducers/userReducer";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./LoginPage.css";
-import LoginVideo from "../../img/LogiN.mp4";
+
+import { loginUser, resetAuthError } from "../../redux/reducers/userReducer";
+import { getCart } from "../../redux/reducers/cartReducer";
 
 class LoginPage extends Component {
     state = {
@@ -36,8 +37,10 @@ class LoginPage extends Component {
 
     render() {
         if (this.props.user_id && !this.props.isadmin) {
+            this.props.getCart(this.props.user_id);
             return <Redirect to="/" />;
         } else if (this.props.user_id && this.props.isadmin) {
+            this.props.getCart(this.props.user_id);
             return <Redirect to="/admin" />;
         }
 
@@ -100,7 +103,8 @@ const mapStateToProps = reduxState => {
 
 const mapDispatchToProps = {
     resetAuthError,
-    loginUser
+    loginUser,
+    getCart
 };
 
 export default connect(

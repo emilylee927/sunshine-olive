@@ -10,7 +10,7 @@ const initialState = {
 
 const REGISTER_USER = "REGISTER_USER";
 const LOGIN_USER = "LOGIN_USER";
-const LOGOUT_USER = "LOGOUT_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
 const RESET_AUTH_ERROR = "RESET_AUTH_ERROR";
 
 export function registerUser(userInfo) {

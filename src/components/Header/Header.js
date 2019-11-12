@@ -55,6 +55,7 @@ class Header extends Component {
                     </form>
                     <Link to="/cart">
                         <img className="cart" src={shoppingcart}></img>
+                        &nbsp;{this.props.numCart}
                     </Link>
                     {loginInfo}
                 </nav>
@@ -67,7 +68,8 @@ const mapStateToProps = reduxState => {
     return {
         user_id: reduxState.userReducer.user_id,
         first_name: reduxState.userReducer.first_name,
-        last_name: reduxState.userReducer.last_name
+        last_name: reduxState.userReducer.last_name,
+        numCart: reduxState.cartReducer.cart.length
     };
 };
 

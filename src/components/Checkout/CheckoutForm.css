@@ -1,0 +1,74 @@
+.StripeElement {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 3px 0 #e6ebf1;
+          box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  -webkit-transition: -webkit-box-shadow 150ms ease;
+  transition: -webkit-box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+          box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.checkout {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 400px 100px;
+      grid-template-columns: 100px 400px 100px;
+  -ms-grid-rows: 10px 50px 30px 50px 10px 30px 30px;
+      grid-template-rows: 10px 50px 30px 50px 10px 30px 30px;
+      grid-template-areas: ". .      ." ". title  ." ". .      ." ". stripe ." ". .      ." ". button ." ". .      .";
+}
+
+.checkout-title {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: title;
+}
+
+.checkout-stripe {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: stripe;
+}
+
+.checkout-button {
+  -ms-grid-row: 6;
+  -ms-grid-column: 2;
+  grid-area: button;
+  border-radius: 20px;
+  border: 2px solid grey;
+  background-color: #f0e7d5;
+}
+
+.checkout-button:hover {
+  background-color: wheat;
+}
+
+.checkout-button a {
+  text-decoration: none;
+}
+
+.checkout-button a:visited {
+  color: black;
+  text-decoration: none;
+}
+/*# sourceMappingURL=CheckoutForm.css.map */
